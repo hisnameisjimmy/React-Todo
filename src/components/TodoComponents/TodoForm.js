@@ -1,0 +1,33 @@
+import React from 'react';
+
+class ToDoForm extends React.Component {
+
+    constructor() {
+        super();
+        this.state = {
+          taskName: ""
+        };
+    }
+
+    changeHandler = event => {
+        this.setState({
+            taskName: event.target.value
+        });
+    };
+
+    submitTask = event => {
+        event.preventDefault();
+        this.props.addTask(this.state.taskName);
+    };
+
+    render() {
+        return (
+          <form onSubmit={this.submitTask}>
+            <input onChange={this.changeHandler} value={this.state.taskName} />
+            <button>Add</button>
+          </form>
+        );
+    }
+};
+
+export default ToDoForm;
