@@ -22,10 +22,16 @@ class ToDoForm extends React.Component {
 
     render() {
         return (
-          <form onSubmit={this.submitTask}>
-            <input onChange={this.changeHandler} value={this.state.taskName} />
-            <button>Add</button>
-          </form>
+          <div>
+            <form onSubmit={this.submitTask}>
+              <input
+                onChange={this.changeHandler}
+                value={this.state.taskName}
+              />
+              <button>Add</button>
+            </form>
+            <button onClick={this.props.clearTasks}>Clear</button>
+          </div>
         );
     }
 };
